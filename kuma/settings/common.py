@@ -741,6 +741,13 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'build/styles/wiki-edit.css',
     },
+    'wiki-compat-tables': {
+        'source_filenames': (
+            'styles/wiki-compat-tables.scss',
+        ),
+        'output_filename': 'build/styles/wiki-compat-tables.css',
+        'template_name': 'pipeline/javascript-array.jinja',
+    },
     'zone-addons': {
         'source_filenames': (
             'styles/zone-addons.scss',
@@ -982,6 +989,7 @@ PIPELINE_JS = {
             'js/auth.js',
             'js/redesign.js',
             'js/highlight.js',
+            'js/wiki-compat-trigger.js',
             # FFO lib contains Promise polyfill
             'js/libs/fontfaceobserver/fontfaceobserver.2.0.7.js',
             'js/fonts.js',
@@ -1096,6 +1104,13 @@ PIPELINE_JS = {
         'extra_context': {
             'async': True,
         },
+    },
+    'wiki-compat-tables': {
+        'source_filenames': (
+            'js/wiki-compat-tables.js',
+        ),
+        'output_filename': 'build/js/wiki-compat-tables.js',
+        'template_name': 'pipeline/javascript-array.jinja',
     },
     'task-completion': {
         'source_filenames': (
