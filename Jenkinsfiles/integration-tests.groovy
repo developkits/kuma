@@ -11,6 +11,9 @@ stage('Tests') {
   if (config.job && config.job.tests) {
     cmd += " -m \"${config.job.tests}\""
   }
+  if (config.job && config.job.maintenance) {
+    cmd += " --maintenance-mode"
+  }
 
   dockerRun("selenium/hub:${config.job.selenium}", ["docker_args": "--name selenium-hub-${BUILD_TAG}"]) {
     dockerRun("selenium/node-firefox:${config.job.selenium}", ["docker_args": "--link selenium-hub-${BUILD_TAG}:hub", "copies": config.job.selenium_nodes]) {
