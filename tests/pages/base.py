@@ -7,6 +7,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from pypom import Page, Region
 
+from utils.decorators import wait_for_window
+
 
 class BasePage(Page):
 
@@ -163,9 +165,9 @@ class BasePage(Page):
             path = re.sub(r'^' + locale + '\/', '', path)
             return path
 
+        @wait_for_window(page_attr='page')
         def open_report_content(self):
             self.find_element(*self._report_content_locator).click()
-            # launches new window, cannot return new page object like other opens
 
         def is_report_content_url_expected(self, selenium, article_url):
             current_url = selenium.current_url
@@ -175,6 +177,7 @@ class BasePage(Page):
             # TODO check url contains article url in query variable
             return url_matches
 
+        @wait_for_window(page_attr='page')
         def open_report_bug(self):
             self.find_element(*self._report_bug_locator).click()
 
