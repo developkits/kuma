@@ -15,6 +15,33 @@ $table-cell-border: 2px solid #fff;
     ====================================================================== */
 
     h2 {
+        position: relative;
+        padding-top: $grid-spacing;
+        font-size: 32px;
+        cursor: pointer;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .icon-minus-circle,
+        .icon-plus-circle {
+            padding-right: 10px;
+            color: $link-color;
+            line-height: 39px;
+            font-size: 16px;
+            vertical-align: top;
+            cursor: pointer;
+        }
+    }
+
+    h3,
+    h5 {
         @extend %highlight;
     }
 

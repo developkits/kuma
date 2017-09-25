@@ -21,6 +21,11 @@ $see-also-outdent: 6px;
         }
     }
 
+    .toggler .icon-minus-circle,
+    .toggler .icon-plus-circle {
+        color: $link-color;
+    }
+
     /* hides submenus by default */
     ul ul {
         display: none;
@@ -36,7 +41,10 @@ $see-also-outdent: 6px;
     }
 
     li li {
-        @include bidi-style(padding-left, $grid-spacing * 1.5, padding-right, 0);
+        line-height: 1;
+        @include bidi-style(padding-left, $grid-spacing, padding-right, 0);
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     li li li {
@@ -45,7 +53,6 @@ $see-also-outdent: 6px;
 
     code {
         background-color: transparent;
-        color: inherit;
         padding: 0;
     }
 
